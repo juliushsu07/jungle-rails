@@ -21,6 +21,18 @@ end
 
 # Let's do this ...
 
+## USERS
+
+puts "Finding or Creating Users ..."
+
+user1 = User.find_or_create_by! ({
+  first_name: 'Julius',
+  last_name:  'Hsu',
+  email:      'juliushsu07@lighthouse.com',
+  password: '123',
+  password_confirmation: '123'
+})
+
 ## CATEGORIES
 
 puts "Finding or Creating Categories ..."
