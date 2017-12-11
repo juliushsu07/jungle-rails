@@ -26,12 +26,19 @@ end
 puts "Finding or Creating Users ..."
 
 user1 = User.find_or_create_by! ({
-  first_name: 'Julius',
-  last_name:  'Hsu',
-  email:      'juliushsu07@lighthouse.com',
-  password: '123',
-  password_confirmation: '123'
+  first_name: Faker::Name.first_name,
+  last_name:  Faker::Name.last_name,
+  email:      Faker::Internet.email,
+  password_digest:   Faker::Internet.password,
 })
+
+user2 = User.find_or_create_by! ({
+  first_name: Faker::Name.first_name,
+  last_name:  Faker::Name.last_name,
+  email:      Faker::Internet.email,
+  password_digest:   Faker::Internet.password,
+})
+
 
 ## CATEGORIES
 
@@ -142,6 +149,31 @@ cat3.products.create!({
   image: open_asset('furniture3.jpg'),
   quantity: 0,
   price: 2_483.75
+})
+
+puts "Re-creating Reviews ..."
+
+Review.destroy_all
+
+Review.create!({
+  product_id: 1,
+  user_id: 1,
+  description: Faker::Hipster.paragraph(4),
+  rating: 4
+})
+
+Review.create!({
+  product_id: 1,
+  user_id: 2,
+  description: Faker::Hipster.paragraph(4),
+  rating: 3
+})
+
+Review.create!({
+  product_id: 2,
+  user_id: 1,
+  description: Faker::Hipster.paragraph(4),
+  rating: 5
 })
 
 
