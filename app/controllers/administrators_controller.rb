@@ -10,6 +10,7 @@ class AdministratorsController < ApplicationController
       session[:admin] = @admin_username
       redirect_to '/'
     else
+      flash[:danger] = "Admin username and password combination is incorrect!!"
       redirect_to '/administrator/new'
     end
   end
