@@ -35,6 +35,11 @@
             <li><%= link_to "Hi, #{current_user.email}", [:root] %></li>
             <li><%= link_to 'Logout', { :controller => 'sessions', :action => 'destroy' }, data:  { :method => :delete} %></li>
             <li><%= link_to 'Login as Admin', controller: "administrators", action: "new" %></li>
+            <li>
+              <%= link_to cart_path do %>
+                <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)
+              <% end %>
+            </li>
           <% else %>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
