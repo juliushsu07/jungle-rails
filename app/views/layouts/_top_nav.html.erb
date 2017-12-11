@@ -31,6 +31,7 @@
           <li><%= link_to 'Login',  controller: "sessions", action: "new" %></li>
           <li><%= link_to 'Register', controller: "users", action: "new" %></li>
         <% else %>
+          <li><%= link_to "Hi, #{current_user.email}", [:root] %></li>
           <li><%= link_to 'Logout', { :controller => 'sessions', :action => 'destroy' },
                data:  { :method => :delete} %></li>
           <li class="dropdown">
