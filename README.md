@@ -5,6 +5,15 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 
 ## Setup
 
+![alt text](/img/add_new_category.png)
+![alt text](/img/admin_index.png)
+![alt text](/img/login_page.png)
+![alt text](/img/login_user_product.png)
+![alt text](/img/product_page.png)
+![alt text](/img/singup_page.png)
+![alt text](/img/user_index.png)
+
+
 1. Fork & Clone
 2. Run `bundle install` to install dependencies
 3. Create `config/database.yml` by copying `config/database.example.yml`
