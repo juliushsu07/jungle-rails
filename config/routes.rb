@@ -2,11 +2,12 @@ Rails.application.routes.draw do
 
   root to: 'products#index'
 
-  resources :users, only: [:new, :create]
-  resource  :session, only: [:new, :create, :destroy]
-
   resources :products, only: [:index, :show]
   resources :categories, only: [:show]
+
+  resources :users, only: [:new, :create]
+  resource  :session, only: [:new, :create, :destroy]
+  resource  :administrator, only: [:new, :create, :destroy]
 
   resource :cart, only: [:show] do
     put    :add_item
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
     resources :products, except: [:edit, :update, :show]
     resources :categories, only: [:index, :new, :create]
     resource  :session, only: [:new, :create, :destroy]
+    resource  :administrator, only: [:new, :create, :destroy]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
